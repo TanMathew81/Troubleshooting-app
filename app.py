@@ -1,10 +1,12 @@
 import streamlit as st
 import pandas as pd
 
-# Load the dataset
+# Load the dataset from GitHub
 @st.cache_data
 def load_data():
-    return pd.read_excel("data.xlsx")  # Ensure 'data.xlsx' is in the same folder
+    url = "https://raw.githubusercontent.com/TanMathew81/Troubleshooting-app/main/data.xlsx"
+    df = pd.read_excel(url, engine='openpyxl')  # Use 'openpyxl' engine for Excel files
+    return df
 
 df = load_data()
 
